@@ -1,0 +1,33 @@
+body {
+    background-color: #009fdb;
+}
+
+h1,h2,h3,p {
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    text-align: center;
+    padding: 5px;
+}
+
+p {
+    padding: 2%
+}
+
+.heading {
+    margin-top: 12%;
+}
+
+.form-select {
+    font-family: 'Raleway', sans-serif;
+    margin: 15px;
+}
+
+.forms {
+    text-align: center;
+    padding: 2% 10%;
+}
+
+.perfect-tense {
+    width: 15rem;
+    height: auto;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Are You Bored</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico')}}">
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@900&display=swap" rel="stylesheet">
+
+    <!--Bootstrap CSS-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <!--stylesheet-->
+    <link href="{{ url_for('static', filename='style.css')}}" rel="stylesheet"/>
+</head>
+<body>
+    <!--Heading section-->
+    <div class="heading">
+        <h1>Are you bored ?</h1>
+        <h2>let me help with that.</h2>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for message in messages %}
+            <!--Display flashed message-->
+            <p>Activity: "{{message}}"</p>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+    </div>
+
+    <!--Form section-->
+    <form class="forms" method="POST" action="/">
+         <!-- Dropdown for activity selection-->
+         <select name="activitys" class="form-select">
+                <option> Type of activity?</option>
+                {% for activity in activitys %}
+                    <option value="{{ activity }}"
+                        {% if activity == selected_activity %} selected {% endif %}>
+                        {{ activity }}
+                    </option>
+                {% endfor %}
+         </select>
+
+        <!-- Dropdown for activity selection-->
+        <select name="participants" class="form-select">
+            <option> Number of Participants? </option>
+            {% for participant in participants %}
+                <option value="{{ participant }}"
+                    {% if participant == number_of_participant %} selected {% endif %}>
+                    {{ participant }}
+                </option>
+            {% endfor %}
+        </select>
+        <!-- Submit button -->
+        <input type="Submit" class="btn btn-primary" value="Submit"/>
+
+
+    </form>
+
+</body>
+</html>
